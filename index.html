@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               script-src 'self' 'unsafe-inline'; 
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+               img-src 'self' data: https://*.google.com https://*.googleapis.com; 
+               font-src 'self' data: https://fonts.gstatic.com;
+               connect-src 'self';">
+
+
+
+    <title>Registro Geológico 🌍</title>
+    <link rel="stylesheet" href="estilos/style.css"> 
+    <link rel="icon" href="img/icono-2.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de arenas 🔬</h1>
+        
+        <section id="form-registro">
+            <h2>Registrar Nueva Muestra</h2>
+            <form id="formularioMuestra">
+                <div id="campo">
+                    <label for="numeroMuestra">Nª muestra:</label>
+                    <input type="text" id="numeroMuestra"  style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="coleccionista">Coleccionista:</label>
+                    <input type="text" id="coleccionista" style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="localidad">Localidad:</label>
+                    <input type="text" id="localidad"  style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="pais">Pais:</label>
+                    <input type="text" id="pais"  style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="mineralogia">Mineralogia:</label>
+                    <input type="text" id="mineralogia"  style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="paleontologia">Paleontologia:</label>
+                    <input type="text" id="paleontologia"  style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+                
+                <div id="campo">
+                    <label for="latitud">Latitud (Opcional):</label>
+                    <input type="text" id="latitud" placeholder="Ej: 34.6037" style="font-size: clamp(7px,2.5vw,20px);"> 
+                </div>
+                
+                <div id="campo">
+                    <label for="longitud">Longitud (Opcional):</label>
+                    <input type="text" id="longitud" placeholder="Ej: -58.3816" style="font-size: clamp(7px,2.5vw,20px);">
+                </div>
+
+                <button type="submit" id="boton-guardar">Guardar Muestra</button>
+            </form>
+            
+        </section>
+
+        <hr>
+
+        <section id="lista-muestras">
+            <h2>Muestras Registradas</h2>
+            <p id="mensaje-vacio" class="oculto">Aún no hay datos registrados.</p>
+            
+            <div class="tabla-responsive"> 
+                <table id="tabla-muestras" class="oculto">
+
+                    <thead>
+                        <tr>
+                            <th>Nª muestra</th>
+                            <th>Coleccionista</th>
+                            <th>Localidad</th>
+                            <th>Pais</th>
+                            <th>Mineralogia</th>
+                            <th>Paleontologia</th>
+                            <th>Latitud</th>
+                            <th>Longitud</th>
+                            <th>Coordenadas en mapa</th> 
+                            <th>Acciones</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            
+            <button id="exportarDatos" class="oculto">Exportar Datos (CSV)</button> 
+            <button id="limpiarDatos" class="oculto">Limpiar Registro</button>
+        </section>
+        
+        <hr>
+        
+        <section id="seccion-mapa-manual">
+            <h2>Buscar Coordenadas en Mapa</h2>
+            <p>Introduce coordenadas para ir directamente a Google Maps.</p>
+            <form id="formularioMapaManual">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end;">
+                    <div style="flex-grow: 1; min-width: 150px;">
+                        <label for="mapNumeroMuestra">Número de muestra (Ref.):</label>
+                        <input type="text" id="mapNumeroMuestra" placeholder="Ej: M-105">
+                    </div>
+                    <div style="flex-grow: 1; min-width: 150px;">
+                        <label for="mapLatitud">Latitud:</label>
+                        <input type="text" id="mapLatitud" placeholder="Ej: 34.6037" required>
+                    </div>
+                    <div style="flex-grow: 1; min-width: 150px;">
+                        <label for="mapLongitud">Longitud:</label>
+                        <input type="text" id="mapLongitud" placeholder="Ej: -58.3816" required>
+                    </div>
+                    <button type="submit" id="btnIrMapaManual">Ir a Google Maps 🌍</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="script/script2.js"></script>
+</body>
+</html>
