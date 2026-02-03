@@ -82,19 +82,37 @@ input[type="text"] {
 
 #formularioMuestra{
     
-    display: flex; /*Da una disposicion horizontal*/
-    flex-direction: row;  /*Tambien puede ser columna : collumn*/
-    justify-content: space-around;
-    flex-wrap: wrap;  /*Me ayuda a que el cotenido se adapte */ 
+    /*display: flex; /*Da una disposicion horizontal*/
+    /*flex-direction: row;  /*Tambien puede ser columna : collumn*/
+    /*justify-content: space-around;
+    /*flex-wrap: wrap;  /*Me ayuda a que el cotenido se adapte */ 
+    border: #0056b3 solid 2px;
+    text-align: center;
+
+    display: grid;
+    /* Crea 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Espacio entre campos */
+    gap: 30px; 
+    align-items: end; /* Alinea los inputs al fondo si las etiquetas tienen distinto largo */
+    padding-left: 35px;
+
 
 }
 
-#campo{
+.campo{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 #boton-guardar{
     font-size: clamp(19px,2.5vw,32px);
+    grid-column: 1 / -1; /* Se extiende desde la col 1 hasta la última */
+    justify-self: center; /* Se centra solito */
+    width: fit-content;
+    margin-top: 20px;
 }
 
 
@@ -321,17 +339,31 @@ h2 {
 
 /* -------------------------RESPONSIVE-------------------------------------------------------- */
 
-@media only screen and (min-width: 200px) and (max-width: 712px){
+@media only screen and (min-width: 200px) and (max-width: 1500px){
     #formularioMuestra{
-        display: flex; /*Da una disposicion horizontal*/
-        flex-direction: column;  /*Tambien puede ser columna : collumn*/
-        justify-content: space-around;
-        flex-wrap: wrap;  /*Me ayuda a que el cotenido se adapte */ 
+        /*display: flex; /*Da una disposicion horizontal*/
+        /*flex-direction: column;  /*Tambien puede ser columna : collumn*/
+        /*justify-content: space-around;
+        /*flex-wrap: wrap;  /*Me ayuda a que el cotenido se adapte */ 
+        /*gap: 15px;*/
+
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+
+ 
+
 
     }
 
     #campo{
         width: 100%;
+        text-align: center !important; 
+    }
+
+    .campo input {
+        width: 100%;            /* Ocupa el 100% de su celda de Grid */
+        max-width: 100%;        /* Prohibido salirse */
+        box-sizing: border-box; /* El padding no suma ancho extra */
+        /*font-size: clamp(14px, 1vw, 18px); /* Tipografía responsiva */
     }
 
     #boton-guardar{
@@ -340,5 +372,6 @@ h2 {
         margin-right: 30px;
         background-color: #007bff;
     }
+
 
 }
