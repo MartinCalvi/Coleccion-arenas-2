@@ -351,6 +351,7 @@ h2 {
         grid-template-columns: 1fr; /* Una sola columna en móviles */
         
         padding-left: 0px;
+        text-align: center;
 
  
 
