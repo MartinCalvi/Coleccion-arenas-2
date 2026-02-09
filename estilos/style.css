@@ -101,6 +101,7 @@ input[type="text"] {
 }
 
 .campo{
+    
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -339,7 +340,7 @@ h2 {
 
 /* -------------------------RESPONSIVE-------------------------------------------------------- */
 
-@media only screen and (min-width: 200px) and (max-width: 1500px){
+@media only screen and (min-width: 200px) and (max-width:  1500px){
     #formularioMuestra{
         /*display: flex; /*Da una disposicion horizontal*/
         /*flex-direction: column;  /*Tambien puede ser columna : collumn*/
@@ -348,6 +349,8 @@ h2 {
         /*gap: 15px;*/
 
         grid-template-columns: 1fr; /* Una sola columna en móviles */
+        
+        padding-left: 0px;
 
  
 
@@ -355,7 +358,8 @@ h2 {
     }
 
     #campo{
-        width: 100%;
+        /*width: 100%;*/
+        
         text-align: center !important; 
     }
 
